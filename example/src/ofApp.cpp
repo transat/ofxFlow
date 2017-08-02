@@ -8,30 +8,34 @@
 void ofApp::setup()
 {
 	
-	ofPtr<ofxFlowNodeValue<float> > valueNode = ofPtr<ofxFlowNodeValue<float> >(new ofxFlowNodeValue<float>("One point five", 1.5f));
-	valueNode->rect = ofRectangle(100, 100, 200, 40);
-	_graph.addNode(valueNode);
-	
-	ofPtr<ofxFlowNodeValue<float> > timeNode = ofPtr<ofxFlowNodeElapsedTime<float> >(new ofxFlowNodeElapsedTime<float>());
-	timeNode->rect = ofRectangle(100, 300, 200, 40);
-	_graph.addNode(timeNode);
-	
-	ofPtr<ofxFlowNodeAdd> additionNode = ofPtr<ofxFlowNodeAdd>(new ofxFlowNodeAdd());
-	additionNode->rect = ofRectangle(350, 100, 200, 150);
-	_graph.addNode(additionNode);
-	
-	ofPtr<ofxFlowNodeAdd> additionNode2 = ofPtr<ofxFlowNodeAdd>(new ofxFlowNodeAdd());
-	additionNode2->rect = ofRectangle(600, 250, 200, 150);
-	_graph.addNode(additionNode2);
-	
-	// TODO: add validation
-	ofPtr<ofxFlowNodeAdd> additionNode3 = ofPtr<ofxFlowNodeAdd>(new ofxFlowNodeAdd());
-	additionNode3->rect = ofRectangle(850, 400, 200, 150);
-	_graph.addNode(additionNode3);
-	
-	ofPtr<ofxFlowNodeSin<float> > sinNode = ofPtr<ofxFlowNodeSin<float> >(new ofxFlowNodeSin<float>());
-	sinNode->rect = ofRectangle(350, 400, 200, 150);
-	_graph.addNode(sinNode);
+    auto valueNode = std::make_shared<ofxFlowNodeValue<float>>("One point five", 1.5f);
+    valueNode->rect = ofRectangle(100, 100, 200, 40);
+    _graph.addNode(valueNode);
+    
+    auto valueNode2 = std::make_shared<ofxFlowNodeValue<float>>("Two point five", 2.5f);
+    valueNode2->rect = ofRectangle(100, 200, 200, 40);
+    _graph.addNode(valueNode2);
+    
+    auto timeNode = std::make_shared<ofxFlowNodeElapsedTime<float>>();
+    timeNode->rect = ofRectangle(100, 300, 200, 40);
+    _graph.addNode(timeNode);
+    
+    auto additionNode = std::make_shared<ofxFlowNodeAdd<float>>();
+    additionNode->rect = ofRectangle(350, 100, 200, 150);
+    _graph.addNode(additionNode);
+    
+    auto additionNode2 = std::make_shared<ofxFlowNodeAdd<float>>();
+    additionNode2->rect = ofRectangle(600, 250, 200, 150);
+    _graph.addNode(additionNode2);
+    
+    // TODO: add validation
+    auto additionNode3 = std::make_shared<ofxFlowNodeAdd<float>>();
+    additionNode3->rect = ofRectangle(850, 400, 200, 150);
+    _graph.addNode(additionNode3);
+    
+    auto sinNode = std::make_shared<ofxFlowNodeSin<float>>();
+    sinNode->rect = ofRectangle(350, 400, 200, 150);
+    _graph.addNode(sinNode);
 	
 	additionNode->connectInputTo("value1", valueNode.get(), "value");
 	additionNode->connectInputTo("value2", valueNode.get(), "value");
