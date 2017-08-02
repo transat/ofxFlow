@@ -253,7 +253,7 @@ void ofxFlowNode::draw()
 void ofxFlowNode::customDraw()
 {
 	ofSetColor(0, 0, 0, 100);
-	ofRect(0, 0, rect.width, rect.height);
+	ofDrawRectangle(0, 0, rect.width, rect.height);
 	ofSetColor(255, 255, 255);
 	ofDrawBitmapString(name, 10, 20);
 	
@@ -261,13 +261,13 @@ void ofxFlowNode::customDraw()
 	
 	for (int i = 0; i < _inputs.size(); i++)
 	{
-		ofCircle(getInputRect(i).getCenter(), 3);
+		ofDrawCircle(getInputRect(i).getCenter(), 3);
 	}
 	
 	ofSetColor(0, 255, 0);
 	
 	for (int i = 0; i < _outputs.size(); i++)
 	{
-		ofCircle(getOutputRect(i).getCenter(), 3);
+		ofDrawCircle(getOutputRect(i).getCenter(), 3);
 	}
 }

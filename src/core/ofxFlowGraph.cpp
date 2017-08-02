@@ -64,7 +64,7 @@ void ofxFlowGraph::draw ()
 	ofSetColor(255, 255, 255, 50);
 	for (vector<TempConnection>::iterator c = _tempConnections.begin(); c != _tempConnections.end(); c++)
 	{
-		ofLine(c->p1.x, c->p1.y, ofGetMouseX(), ofGetMouseY());
+		ofDrawLine(c->p1.x, c->p1.y, ofGetMouseX(), ofGetMouseY());
 	}
 }
 
@@ -139,6 +139,22 @@ void ofxFlowGraph::mouseMoved(ofMouseEventArgs &e)
 {
 	
 }
+
+void ofxFlowGraph::mouseScrolled(ofMouseEventArgs &e)
+{
+    
+}
+
+void ofxFlowGraph::mouseEntered(ofMouseEventArgs &e)
+{
+    
+}
+
+void ofxFlowGraph::mouseExited(ofMouseEventArgs &e)
+{
+    
+}
+
 
 void ofxFlowGraph::mouseDragged(ofMouseEventArgs &e)
 {

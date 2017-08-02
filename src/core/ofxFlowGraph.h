@@ -13,6 +13,9 @@ class ofxFlowGraph
 		void mouseDragged(ofMouseEventArgs &e);
 		void mousePressed(ofMouseEventArgs &e);
 		void mouseReleased(ofMouseEventArgs &e);
+        void mouseScrolled(ofMouseEventArgs &e);
+        void mouseEntered(ofMouseEventArgs &e);
+        void mouseExited(ofMouseEventArgs &e);
 	
 	private:
 	
